@@ -16,17 +16,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    defaultConfig {
+        buildConfigField "String", "BASE_URL", "\"http://api.duckduckgo.com/\""
+    }
+
     flavorDimensions "default"
     productFlavors {
         wire {
             applicationId 'com.sample.wireviewer'
             versionCode 1
             versionName '1.0'
+            buildConfigField "String", "PATH", "\"?q=the+wire+characters&format=json\""
         }
         simpsons {
             applicationId 'com.sample.simpsonsviewer'
             versionCode 1
             versionName '1.0'
+            buildConfigField "String", "PATH", "\"?q=simpsons+characters&format=json\""
         }
     }
 }
