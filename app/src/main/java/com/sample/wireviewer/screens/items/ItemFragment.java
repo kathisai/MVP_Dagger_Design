@@ -2,10 +2,6 @@ package com.sample.wireviewer.screens.items;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +19,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,9 +75,16 @@ public class ItemFragment extends Fragment implements ItemContract.View {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_item, container, false);
         RecyclerView recyclerView = rootView.findViewById(R.id.rv_item_list);
+        recyclerView.setHasFixedSize(true);
         adapter = new ItemListAdapter(getActivity(), list);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        // First param is number of columns and second param is orientation i.e Vertical or Horizontal
+//        StaggeredGridLayoutManager gridLayoutManager =
+//                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+//// Attach the layout manager to the recycler view
+//        recyclerView.setLayoutManager(gridLayoutManager);
         return rootView;
     }
 

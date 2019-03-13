@@ -1,10 +1,10 @@
 package com.sample.wireviewer.screens.items;
 
-import android.support.annotation.Nullable;
-
 import com.sample.wireviewer.di.ActivityScoped;
 
 import javax.inject.Inject;
+
+import androidx.annotation.Nullable;
 
 @ActivityScoped
 public class ItemPresenter implements ItemContract.Presenter {

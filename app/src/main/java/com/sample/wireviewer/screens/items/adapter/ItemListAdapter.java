@@ -1,8 +1,5 @@
 package com.sample.wireviewer.screens.items.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +9,13 @@ import com.example.simpsonsviewer.R;
 import com.sample.wireviewer.model.RelatedTopic;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
 
@@ -50,13 +54,14 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView titleTextView;
-        public TextView descriptionButton;
+        @BindView(R.id.item_title)
+        TextView titleTextView;
+        @BindView(R.id.item_description)
+        TextView descriptionButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.item_title);
-            descriptionButton = itemView.findViewById(R.id.item_description);
+            ButterKnife.bind(this, itemView);
         }
     }
 }
