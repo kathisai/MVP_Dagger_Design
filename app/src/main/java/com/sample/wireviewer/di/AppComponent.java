@@ -3,6 +3,8 @@ package com.sample.wireviewer.di;
 import android.app.Application;
 
 import com.sample.wireviewer.application.ViewerApplication;
+import com.sample.wireviewer.di.network.RetrofitModule;
+import com.sample.wireviewer.network.APIInterface;
 
 import javax.inject.Singleton;
 
@@ -12,7 +14,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
-@Component(modules = {ApplicationModule.class, ActivityModule.class, AndroidSupportInjectionModule.class})
+@Component(modules = {ApplicationModule.class, ActivityModule.class, AndroidSupportInjectionModule.class, RetrofitModule.class})
 public interface AppComponent extends AndroidInjector<ViewerApplication> {
 
     @Component.Builder
@@ -22,4 +24,7 @@ public interface AppComponent extends AndroidInjector<ViewerApplication> {
 
         AppComponent build();
     }
+
+    APIInterface getApiInterface();
+
 }
